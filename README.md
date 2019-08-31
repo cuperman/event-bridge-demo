@@ -124,3 +124,25 @@ aws events delete-event-bus \
 
 ## CloudFormation / CDK
 
+*Note: It turns out that neither CloudFormation nor CDK fully support EventBridge yet.  There is documentation for EventBridge resource types, however you cannot create event buses or add a rule to a custom event bus.  The example code in the `infrastructure` directory builds a rule on the default event bus that invokes an event logger function, similar to our demo with the CLI.  Once CloudFormation supports adding rules to a custom bus, I can update this example.*
+
+Use the following commands to build and deploy the stack with CDK. On success, the stack will be visible in your [CloudFormation console](https://console.aws.amazon.com/cloudformation/home).
+
+```bash
+cd infrastructure
+
+# install dependencies
+npm install
+
+# build the code
+npm run build
+
+# synthesize the CloudFormation template
+npm run cdk -- synth
+
+# deploy the stack
+npm run cdk -- deploy
+
+# destroy the stack when you're done
+npm run cdk -- destroy
+```
