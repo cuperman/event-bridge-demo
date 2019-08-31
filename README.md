@@ -76,9 +76,19 @@ Now you can log into the [AWS console](https://console.aws.amazon.com) to view y
 
 ## Using the AWS Console
 
-* https://console.aws.amazon.com/events/home#/eventbus/event-bridge-demo/rules/log-event
-* https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions/event-logger
-* https://console.aws.amazon.com/cloudwatch/home#logEventViewer:group=/aws/lambda/event-logger
+View the rules the you created in the custom event bus:
+
+https://console.aws.amazon.com/events/home#/eventbus/event-bridge-demo/rules/log-event
+
+Click "Metrics for the rule" to view the graph.  You should see a successul invocation.
+
+You can view the created lambda function:
+
+https://console.aws.amazon.com/lambda/home#/functions/event-logger
+
+And you should be able to find the event logged in the lambda function's cloud watch logs:
+
+https://console.aws.amazon.com/cloudwatch/home#logEventViewer:group=/aws/lambda/event-logger
 
 ## Cleaning Up
 
@@ -111,14 +121,6 @@ aws iam delete-role \
 aws events delete-event-bus \
     --name "event-bridge-demo"
 ```
-
-## AWS Console
-
-Open [EventBridge in AWS console](https://console.aws.amazon.com/events/home#/events)
-
-1. Create event bus
-2. Create rule
-3. Set up partner event
 
 ## CloudFormation / CDK
 
